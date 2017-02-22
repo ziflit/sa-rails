@@ -3,4 +3,4 @@ rvm:
   - 2.3.1
 
 script:
-  - echo No corro nada 
+  - bundle exec rubocop app spec -R --format simple

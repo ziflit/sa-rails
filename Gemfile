@@ -40,10 +40,11 @@ group :development, :test do
   gem 'byebug', platform: :mri
   # Rubocop for linting
   gem 'rubocop'
-end
-
-group :test do
   gem 'rspec-rails', '~> 3.5'
+  gem 'shoulda-matchers'
+  gem 'database_cleaner'
+  gem 'faker'
+  gem 'factory_girl'
 end
 
 group :development do

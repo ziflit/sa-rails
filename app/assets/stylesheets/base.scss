@@ -1,3 +1,19 @@
-h1 {
-  color: $red;
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.vertical-separator {
+  background: linear-gradient($white, $light-orange, $orange, $light-orange, $white);
+  margin: 0 25px 0;
+  width: 3px;
+  height: 255px;
+}
+
+@media screen and (max-width: 768px) {
+  .phone, .vertical-separator {
+    display: none;
+  }
 }

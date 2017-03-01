@@ -1,8 +1,44 @@
+body {
+  font-family: 'Open Sans', sans-serif;
+  margin: 0;
+}
+
 .container {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
+}
+
+.features-section {
+  @extend .container;
+  padding: 50px 0 25px 0;
+  justify-content: space-around;
+  background: $light-gray;
+  align-items: baseline;
+}
+
+.feature {
+  width: 20%;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+  text-align: center;
+}
+
+.feature-text {
+  color: $medium-gray;
+}
+
+.feature-image {
+  margin-bottom: 13px;
+}
+
+.triangle-separator {
+  margin: 25px 0 0 0;
+  height: 12px;
+  background: url(triangle.png);
 }
 
 .vertical-separator {
@@ -15,5 +51,10 @@
 @media screen and (max-width: 768px) {
   .phone, .vertical-separator {
     display: none;
+  }
+  .features-section {
+    flex-flow: column wrap;
+    align-items: center;
+    width: 100%;
   }
 }

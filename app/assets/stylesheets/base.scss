@@ -5,6 +5,12 @@
   align-items: center;
 }
 
+.top-orange-bar {
+  height: 7px;
+  background-color: $light-orange;
+  margin-bottom: 40px;
+}
+
 .vertical-separator {
   background: linear-gradient($white, $light-orange, $orange, $light-orange, $white);
   margin: 0 25px 0;

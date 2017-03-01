@@ -54,6 +54,38 @@ body {
   height: 255px;
 }
 
+footer {
+  z-index: 1;
+  box-shadow: 0 0 7px #909090;
+  background-color: $light-orange;
+  color: $white;
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
+  text-align: center;
+  min-height: 150px;
+
+  input {
+    margin: 10px 0 20px 0;
+    width: 25%;
+    border: solid 0;
+    background-color: $white;
+    height: 30px;
+    border-radius: 10px;
+  }
+  p {
+    margin-bottom: 5px;
+  }
+  button {
+    background: transparent;
+    border: solid 1px $white;
+    border-radius: 4px;
+    font-size: 18px;
+    color: $white;
+    padding: 8px 13px 8px 13px;
+  }
+}
+
 @media screen and (max-width: 768px) {
   .phone, .vertical-separator {
     display: none;

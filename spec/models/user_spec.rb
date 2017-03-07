@@ -1,6 +1,10 @@
 require 'rails_helper'
 
 describe User do
+  # validate_uniqueness_of doesn't fully populate the object so we need this to
+  # make sure that non-null fields are present
+  subject { User.new(verification_code: AuthenticableEntity.verification_code) }
+
   it { is_expected.to validate_presence_of(:password) }
   it { is_expected.to validate_length_of(:password).is_at_least(8) }
   it { is_expected.to validate_length_of(:password).is_at_most(128) }

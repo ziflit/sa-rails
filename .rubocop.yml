@@ -2,3 +2,7 @@ Documentation:
   Enabled: false
 LineLength:
   Max: 99
+AllCops:
+  Exclude:
+    - spec/support/spec_helper.rb
+    - spec/rails_helper.rb

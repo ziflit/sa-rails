@@ -1,0 +1,26 @@
+body {
+  margin: 0
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border-top: 7px solid $light-orange;
+  padding-top: 40px;
+}
+
+.vertical-separator {
+  background: linear-gradient($white, $light-orange, $orange, $light-orange, $white);
+  margin: 0 25px;
+  width: 3px;
+  height: 255px;
+}
+
+@media screen and (max-width: 768px) {
+  .phone,
+  .vertical-separator {
+    display: none;
+  }
+}

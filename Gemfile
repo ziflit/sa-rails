@@ -36,18 +36,16 @@ gem 'jbuilder', '~> 2.5'
 # gem 'capistrano-rails', group: :development
 
 
-# Devise
+# ActiveModel::Serializer for JSON requests
+gem 'active_model_serializers', '~> 0.10'
 gem 'devise'
-# Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
-
-# For API versioning
-gem 'versionist'
-
 gem 'jwt'
-
 # Slim
 gem 'slim'
+# Windows does not include zoneinfo files, so bundle the tzinfo-data gem
+gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+# For API versioning
+gem 'versionist'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

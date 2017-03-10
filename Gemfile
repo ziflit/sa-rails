@@ -52,7 +52,7 @@ group :development, :test do
   gem 'byebug', platform: :mri
   # Rubocop for linting
   gem 'pry'
-  gem 'rubocop'
+  gem 'rubocop', '0.47.1'
   gem 'rspec-rails', '~> 3.5'
   gem 'shoulda-matchers'
   gem 'database_cleaner'

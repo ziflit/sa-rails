@@ -11,6 +11,9 @@ Rails.application.routes.draw do
           end
         end
       end
+      member do
+        resources :rents, only: [:index, :create]
+      end
     end
 
     resources :books, only: [:show, :index]

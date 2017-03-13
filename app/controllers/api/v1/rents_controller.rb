@@ -1,6 +1,6 @@
 module Api
   module V1
-    class RentsController < ApplicationController
+    class RentsController < AuthenticationController
       def index
         rents = Rent.where(user_id: params[:id])
         render json: rents

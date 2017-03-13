@@ -1,6 +1,6 @@
 module Api
   module V1
-    class BooksController < ApplicationController
+    class BooksController < AuthenticationController
       def show
         book = Book.find(params[:id])
         render json: book

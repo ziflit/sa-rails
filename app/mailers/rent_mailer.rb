@@ -1,5 +1,5 @@
 class RentMailer < ApplicationMailer
-  default from: "Yo"
+  default from: 'Yo'
   def new_rent_mail(rent_id)
     @rent = Rent.includes(:user).find(rent_id)
     I18n.locale = @rent.user.locale

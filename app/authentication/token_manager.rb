@@ -1,16 +1,18 @@
 module Authentication
   class TokenManager
-    class << self
-      def encode(payload)
-        JWT.encode(payload, Rails.application.secrets.secret_key_base)
-      end
+    def initialize(key)
+      @key = key
+    end
 
-      def decode(token)
-        payload = JWT.decode(token, Rails.application.secrets.secret_key_base)[0]
-        Authentication::DecodedToken.new(payload)
-      rescue
-        nil
-      end
+    def encode(payload)
+      JWT.encode(payload, @key)
+    end
+
+    def decode(token)
+      payload = JWT.decode(token, @key)[0]
+      Authentication::DecodedToken.new(payload)
+    rescue
+      nil
     end
   end
 end

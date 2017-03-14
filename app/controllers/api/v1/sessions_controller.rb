@@ -5,7 +5,7 @@ module Api
 
       def create
         if authenticated_user?
-          token_data = AuthenticableEntity.generate_access_token(user)
+          token_data = generate_access_token(user)
           render json: {
             access_token: token_data[:token], renew_id: token_data[:renew_id]
           }, status: :ok
@@ -24,8 +24,7 @@ module Api
         elsif !authentication_manager.able_to_renew?
           render_error('Access token is not valid anymore', :unauthorized)
         else
-          access_token = authentication_manager.renew_access_token(current_user)
-          render json: { access_token: access_token }, status: :ok
+          render json: { access_token: renew_access_token }, status: :ok
         end
       end
       # rubocop:enable Metrics/AbcSize
@@ -59,10 +58,6 @@ module Api
 
       def renew_token_params
         params.require(:sessions).permit(:renew_id)
-      end
-
-      def authentication_manager
-        @authentication_manager ||= AuthenticationManager.new(request.headers)
       end
     end
   end

@@ -11,7 +11,7 @@ class User < ApplicationRecord
   has_many :rents
 
   def generate_verification_code
-    self.verification_code = AuthenticableEntity.verification_code
+    self.verification_code = Devise.friendly_token(64)
   end
 
   def rents_counter

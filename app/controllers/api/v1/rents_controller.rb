@@ -9,7 +9,7 @@ module Api
       def create
         rent = Rent.new(create_params.merge(user: current_user))
         if rent.save
-          RentMailer.delay.new_rent_mail(rent)
+          RentMailer.delay.new_rent_mail(rent.id)
           head :created
         else
           render json: { errors: rent.errors }, status: :bad_request

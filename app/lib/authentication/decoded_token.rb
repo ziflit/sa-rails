@@ -24,6 +24,11 @@ module Authentication
       Time.zone.now.to_i > fetch(:expiration_date)
     end
 
+    def valid_renew_id?(renew_id)
+      return true unless fetch[:renew_id].present? && renew_id.present?
+      renew_id == fetch[:renew_id]
+    end
+
     private
 
     def valid_verification_code?(verification_code)

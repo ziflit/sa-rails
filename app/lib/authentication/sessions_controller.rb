@@ -17,9 +17,11 @@ module Authentication
     # TODO: Refactor and remove rubocop exception
     # rubocop:disable Metrics/AbcSize
     def renew
-      if !authentication_manager.warning_expiration_date_reached?
-        render_error('Warning expiration date has not been reached', :forbidden)
-      elsif !authentication_manager.valid_renew_id?(renew_token_params[:renew_id])
+      # if !authentication_manager.warning_expiration_date_reached?
+      #   render_error('Warning expiration date has not been reached', :forbidden)
+      # elsif !authentication_manager.valid_renew_id?(renew_token_params[:renew_id])
+      byebug
+      if !decoded_token.valid_renew_id?(renew_token_params[:renew_id])
         render_error('Invalid renew_id', :unauthorized)
       elsif !authentication_manager.able_to_renew?
         render_error('Access token is not valid anymore', :unauthorized)
@@ -53,11 +55,13 @@ module Authentication
     end
 
     def authenticate_params
-      params.require(:sessions).permit(:email, :password)
+      # params.require(:sessions).permit(:email, :password)
+      params.permit(:email, :password)
     end
 
     def renew_token_params
-      params.require(:sessions).permit(:renew_id)
+      # params.require(:sessions).permit(:renew_id)
+      params.permit(:renew_id)
     end
   end
 end

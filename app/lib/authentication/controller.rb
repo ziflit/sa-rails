@@ -54,5 +54,26 @@ module Authentication
     def payload(entity)
       raise Authentication::Exceptions::SubclassMustImplementError
     end
+
+    # Added by mishuagopian, we may delete this
+    def token_renew_id
+      Devise.friendly_token(32)
+    end
+
+    def entity_payload(entity)
+      { user_id: entity.id }
+    end
+
+    def new_token_expiration_date
+      (Time.zone.now + 30.days).to_i
+    end
+
+    def authenticable_entity_validation(entity)
+      entity.verification_code
+    end
+
+    def find_authenticable_entity(decoded_token)
+      @current_user ||= User.find_by(id: decoded_token.fetch(:user_id))
+    end
   end
 end

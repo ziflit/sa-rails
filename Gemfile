@@ -40,6 +40,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'active_model_serializers', '~> 0.10'
 gem 'devise'
 gem 'jwt'
+gem 'pundit'
 # Slim
 gem 'slim'
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

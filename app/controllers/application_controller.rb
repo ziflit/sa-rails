@@ -1,5 +1,6 @@
 # app/controllers/application_controller.rb
 class ApplicationController < ActionController::Base
+  include Pundit
   rescue_from ActionController::ParameterMissing, with: :render_nothing_bad_req
   rescue_from ActiveRecord::RecordNotFound, with: :render_nothing_bad_req
   protect_from_forgery with: :null_session

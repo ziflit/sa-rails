@@ -3,7 +3,26 @@ html
   head
     meta name="viewport" content="width=device-width, initial-scale=1"
   body
-    .container
+    article.main-section
       = image_tag('phone.png', class: 'phone')
       .vertical-separator
       = image_tag('tcg_logo.png', class: 'logo')
+    article.features-section
+      .feature
+        = image_tag('ic_list.png', class: 'feature-image')
+        h4.bold
+          | Keep track of your money
+        p.feature-text
+          | See all your debts and all your friends debts towards you.
+      .feature
+        = image_tag('ic_reminder.png', class: 'feature-image')
+        h4.bold
+          | Generate reminders
+        p.feature-text
+          | Get reminded of who owes you money or who you owe money to.
+      .feature
+        = image_tag('ic_safe.png', class: 'feature-image')
+        h4.bold
+          | No internet needed
+        p.feature-text
+          | All your debts are kept safe in your phone.

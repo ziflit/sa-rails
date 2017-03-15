@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
   rescue_from ActionController::ParameterMissing, with: :render_nothing_bad_req
   rescue_from ActiveRecord::RecordNotFound, with: :render_nothing_bad_req
   protect_from_forgery with: :null_session
+  rescue_from Pundit::NotAuthorizedError, with: :unauthorized
   before_action :authenticate_request
 
   private
@@ -49,5 +50,9 @@ class ApplicationController < ActionController::Base
 
   def render_nothing_bad_req
     head :bad_request
+  end
+
+  def unauthorized
+    head :unauthorized
   end
 end

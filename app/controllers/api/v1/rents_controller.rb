@@ -2,6 +2,7 @@ module Api
   module V1
     class RentsController < ApplicationController
       def index
+        authorize User.find(params[:id]), :rents_index?
         rents = Rent.where(user_id: params[:id])
         render json: rents
       end

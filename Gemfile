@@ -35,11 +35,24 @@ gem 'jbuilder', '~> 2.5'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+
+# ActiveModel::Serializer for JSON requests
+gem 'active_model_serializers', '~> 0.10'
+gem 'devise'
+gem 'jwt'
+# Slim
+gem 'slim'
+# Windows does not include zoneinfo files, so bundle the tzinfo-data gem
+gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+# For API versioning
+gem 'versionist'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
   # Rubocop for linting
-  gem 'rubocop'
+  gem 'pry'
+  gem 'rubocop', '0.47.1'
   gem 'rspec-rails', '~> 3.5'
   gem 'shoulda-matchers'
   gem 'database_cleaner'
@@ -55,9 +68,3 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
-
-# Slim
-gem 'slim'
-
-# Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]

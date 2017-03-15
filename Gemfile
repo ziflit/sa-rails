@@ -39,6 +39,8 @@ gem 'jbuilder', '~> 2.5'
 # ActiveModel::Serializer for JSON requests
 gem 'active_model_serializers', '~> 0.10'
 gem 'devise'
+# Interactor for Service Objects
+gem 'interactor', '~> 3.0'
 gem 'jwt'
 gem 'sidekiq'
 # Slim

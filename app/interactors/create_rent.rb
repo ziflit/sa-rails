@@ -4,10 +4,7 @@ class CreateRent
   def call
     rent = Rent.new(context.params)
     rent.user = context.user
-    if rent.save
-      RentMailer.delay.new_rent_mail(rent.id)
-    else
-      context.fail!
-    end
+    context.fail!(error: rent.errors.messages) unless rent.save
+    RentMailer.delay.new_rent_mail(rent.id)
   end
 end

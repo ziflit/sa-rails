@@ -7,12 +7,11 @@ module Api
       end
 
       def create
-        rent = CreateRent.call(params: create_params, user: current_user)
-        if rent.success?
-          head :created
-        else
-          render json: { errors: rent.error }, status: :bad_request
+        interactor = CreateRent.call(params: create_params, user: current_user)
+        unless interactor.success?
+          return render json: { errors: interactor.error }, status: :bad_request
         end
+        head :created
       end
 
       private

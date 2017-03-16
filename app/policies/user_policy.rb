@@ -6,10 +6,6 @@ class UserPolicy
     @record = record
   end
 
-  def index?
-    record.id == user.id
-  end
-
   def rents_index?
     record.id == user.id
   end

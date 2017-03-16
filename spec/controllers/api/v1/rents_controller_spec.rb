@@ -28,10 +28,10 @@ module Api
 
         context 'When a user tries to access another users rents' do
           let(:another_user) { create(:user) }
-          let!(:access_token) { AuthenticableEntity.generate_access_token(another_user)[:token] }
+          let(:rent) { create(:rent, user: another_user) }
+
           it 'responds with unauthorized' do
-            request.headers['Authorization'] = access_token
-            get :index, params: { id: user.id }
+            get :index, params: { id: another_user.id }
             expect(response).to have_http_status(:unauthorized)
           end
         end
@@ -46,6 +46,7 @@ module Api
             post :create, params: { id: user.id, from: Time.zone.today, to: Time.zone.tomorrow,
                                     book_id: rent.book.id }
           end
+
           it 'responds with created' do
             expect(response).to have_http_status(:created)
           end

@@ -35,6 +35,8 @@ gem 'jbuilder', '~> 2.5'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+gem 'activeadmin', git: 'https://github.com/activeadmin/activeadmin'
+
 
 # ActiveModel::Serializer for JSON requests
 gem 'active_model_serializers', '~> 0.10'

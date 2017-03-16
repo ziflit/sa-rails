@@ -11,7 +11,7 @@ module Api
         if rent.success?
           head :created
         else
-          render json: { errors: rent.errors }, status: :bad_request
+          render json: { errors: rent.error }, status: :bad_request
         end
       end
 

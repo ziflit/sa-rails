@@ -25,6 +25,16 @@ module Api
             expect(response_body).to be_empty
           end
         end
+
+        context 'When a user tries to access another users rents' do
+          let(:another_user) { create(:user) }
+          let!(:access_token) { AuthenticableEntity.generate_access_token(another_user)[:token] }
+          it 'responds with unauthorized' do
+            request.headers['Authorization'] = access_token
+            get :index, params: { id: user.id }
+            expect(response).to have_http_status(:unauthorized)
+          end
+        end
       end
 
       describe 'POST #create' do
